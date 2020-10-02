@@ -5,12 +5,29 @@ using UnityEngine;
 public class TrayManager : MonoBehaviour
 {
     [SerializeField]
-    private List<Object> IngredientsT1;
+    private List<TrayInfo> trays;
     [SerializeField]
-    private List<Object> IngredientsT2;
-    [SerializeField]
-    private List<Object> IngredientsT3;
-    [SerializeField]
-    private List<Object> IngredientsT4;
+    private bool spawning = true;
 
+    private void OnEnable()
+    {
+        
+        foreach (var t in GetComponentsInChildren<TrayInfo>())
+        {
+            StartCoroutine(sendIngredient(t));
+        }
+    }
+
+    IEnumerator sendIngredient(TrayInfo t)
+    {
+        while (spawning)
+        {
+            yield return new WaitForSeconds(t.time);
+            var o = t.getRandIngredient();
+            if (o != null)
+            {
+                Instantiate(o,t.transform);
+            }
+        }
+    }
 }
