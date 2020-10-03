@@ -6,6 +6,8 @@ public class ClientManager : MonoBehaviour
 {
     List<Transform> clientPositions = new List<Transform>();
     GameObject baseClient;
+    List<ClientInfo> queue = new List<ClientInfo>();
+
     void Start()
     {
         baseClient = Resources.Load<GameObject>("Prefabs/Client");
@@ -14,15 +16,17 @@ public class ClientManager : MonoBehaviour
             clientPositions.Add(pos);
         }
 
-        foreach(var pos in clientPositions)
-        {
-            Instantiate(baseClient, pos);
-        }
+
+        //TEMP
+        var cinfo = new ClientInfo(new List<string> { "IngredientA", "IngredientB" });
+        queue.Add(cinfo);
+
+        AddClient(cinfo, clientPositions[0]);
     }
 
-    // Update is called once per frame
-    void Update()
+    void AddClient(ClientInfo cinfo, Transform pos)
     {
-
+        var go = Instantiate(baseClient, pos);
+        go.GetComponent<Client>().info = cinfo;
     }
 }
