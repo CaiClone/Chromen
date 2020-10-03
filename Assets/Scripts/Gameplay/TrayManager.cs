@@ -26,7 +26,8 @@ public class TrayManager : MonoBehaviour
             var o = t.getRandIngredient();
             if (o != null)
             {
-                Instantiate(o,t.transform);
+                var nobj = Instantiate(o,t.transform);
+                Destroy(nobj, 10);
             }
         }
     }
