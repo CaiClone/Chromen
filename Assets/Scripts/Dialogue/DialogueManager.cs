@@ -10,8 +10,8 @@ public class DialogueManager : MonoBehaviour
     {
         AudioController.Instance.Play("click");
     }
-    public void AutoComplete()
+    public void AutoComplete(DialogueUI dui)
     {
-        Utils.WaitAndRun(4.5f, () => dialogueUI.MarkLineComplete());
+        Utils.WaitAndRun(4.5f, () => dui.MarkLineComplete());
     }
 }

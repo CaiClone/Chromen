@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Yarn.Unity;
 
 public class ClientManager : MonoBehaviour
 {
     List<Transform> clientPositions = new List<Transform>();
+    List<DialogueRunner> dialogueRunners = new List<DialogueRunner>();
     GameObject baseClient;
     Queue<ClientInfo> queue = new Queue<ClientInfo>();
     Client[] counterClients;
@@ -20,6 +22,11 @@ public class ClientManager : MonoBehaviour
             clientPositions.Add(pos);
         }
         counterClients = new Client[clientPositions.Count];
+
+        foreach (var dr in FindObjectsOfType<DialogueRunner>())
+        {
+            dialogueRunners.Add(dr);
+        }
 
         loadFromQueue();
     }
@@ -58,6 +65,7 @@ public class ClientManager : MonoBehaviour
         var go = Instantiate(baseClient, clientPositions[seat]);
         var cli = go.GetComponent<Client>();
         cli.info = cinfo;
+        cli.dialogueRunner = dialogueRunners[seat];
         counterClients[seat] = cli;
     }
 

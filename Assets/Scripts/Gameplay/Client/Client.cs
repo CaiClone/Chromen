@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Yarn.Unity;
 
 public class Client : MonoBehaviour
 {
     public ClientInfo info;
+    public DialogueRunner dialogueRunner;
 
     //establishes positions in recipe for different number of ingredients in {numIngredient, {x,y,ScaleX,ScaleY}}
     Dictionary<int, float[]> pinfo = new Dictionary<int, float[]>()
@@ -14,6 +16,7 @@ public class Client : MonoBehaviour
         {2, new float[] {-0.48f,0.1f,5f,5f,0.46f,0.1f, 5f, 5f } },
         {3, new float[] {1,2,3,4,1,2,3,4 } }
     };
+
     public void Start()
     {
         if (info.flipped)
@@ -21,7 +24,7 @@ public class Client : MonoBehaviour
             var sprite = GetComponent<SpriteRenderer>();
             sprite.flipX = true;
         }
-        info.OnStart(this);
+        info.OnStart(this,dialogueRunner);
     }
     public void Order(List<string> order)
     {

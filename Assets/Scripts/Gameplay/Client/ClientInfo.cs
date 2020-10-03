@@ -13,24 +13,25 @@ public class ClientInfo : MonoBehaviour
     public YarnProgram Dialogue;
 
     private Client client;
+    private DialogueRunner dialogueRunner;
 
-    public virtual void OnStart(Client client) {
+    public virtual void OnStart(Client client, DialogueRunner dialogueRunner) {
         this.client = client;
+        this.dialogueRunner = dialogueRunner;
 
         if (Dialogue != null)
         {
-            DialogueRunner dialogueRunner = FindObjectOfType<DialogueRunner>();
             dialogueRunner.Add(Dialogue);
             if (talkAfterOrdering)
             {
-                Utils.WaitAndRun(2.5f, () => Talk(dialogueRunner));
+                Utils.WaitAndRun(2.5f, () => Talk());
             }
         }
         Utils.WaitAndRun(timeToOrder, () => client.Order(order));
     }
 
-    private void Talk(DialogueRunner dr)
+    private void Talk()
     {
-        dr.StartDialogue(Dialogue.name);
+        dialogueRunner.StartDialogue(Dialogue.name);
     }
 }
