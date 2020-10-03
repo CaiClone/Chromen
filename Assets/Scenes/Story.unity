@@ -461,6 +461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicOn: 0
+  renderText: {fileID: 22197193}
+  image: {fileID: 746626835}
 --- !u!4 &447217419
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &746626836
 Transform:
   m_ObjectHideFlags: 0
@@ -680,6 +682,9 @@ MonoBehaviour:
   defaultVariables:
   - name: playername
     value: TODEFINE
+    type: 1
+  - name: restaurantName
+    value: RESTAURANTNAME
     type: 1
   debugTextView: {fileID: 0}
 --- !u!114 &1308454905

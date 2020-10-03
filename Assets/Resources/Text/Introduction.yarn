@@ -1,7 +1,17 @@
 title: Introduction
 ---
 <<wait 1>>
-Hey playername! 
-come around for a second
-This is the last day o
+<<setcolorDad StoryManager>>
+Hey {$playername}! 
+come here for a second, there is something I want to tell you
+It may already be obvious
+but if something were to happen to me...
+I would like you to inherit {$restaurantName}
+<<setcolorMe StoryManager>>
+My father told me these words recently
+I did not expect them to become relevant so soon
+<<wait 3>>
+<<ShowImage StoryManager>>
+...
+
 ===
