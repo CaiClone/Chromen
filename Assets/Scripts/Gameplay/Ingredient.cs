@@ -15,11 +15,15 @@ public class Ingredient : MonoBehaviour
 
     public void Select()
     {
-        gameObject.transform.Find("Selected").GetComponent<SpriteRenderer>().enabled = true;
+        var cmp = gameObject.transform.Find("Selected").GetComponent<SpriteRenderer>();
+        if (cmp)
+            cmp.enabled = true;
     }
 
     public void Unselect()
     {
-        gameObject.transform.Find("Selected").GetComponent<SpriteRenderer>().enabled = false;
+        var cmp = gameObject.transform.Find("Selected").GetComponent<SpriteRenderer>();
+        if (cmp)
+            cmp.enabled = false;
     }
 }

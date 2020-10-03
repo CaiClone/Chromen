@@ -9,11 +9,14 @@ public class Controlmanager : MonoBehaviour
     WorldControls controls;
     Camera mainCamera;
 
+    //because new input system is fucking bullshit
+    bool isMouseDown;
     List<Ingredient> selectedIngredients = new List<Ingredient>();
     readonly List<(string, System.Action<Controlmanager, GameObject>)> hitResponses = new List<(string, System.Action<Controlmanager,GameObject>)>()
     {
         ("Ingredient",(ins,go)=>ins.selectIngredient(go))
     };
+
     void Start()
     {
         controls = new WorldControls();
@@ -25,28 +28,39 @@ public class Controlmanager : MonoBehaviour
         controls.Player.Select.canceled += clickUp;
         mainCamera = Camera.main;
     }
-    public void clickDown(CallbackContext ctx)
-    {
-        Vector2 pos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, ContactFilter2D.NormalAngleUpperLimit);
-        if (hit.collider != null)
+    public void Update()
+    {
+        if (isMouseDown)
         {
-            foreach((var tag,var func) in hitResponses)
+            Vector2 pos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, ContactFilter2D.NormalAngleUpperLimit);
+            if (hit.collider != null)
             {
-                if (hit.transform.tag == tag)
+                foreach ((var tag, var func) in hitResponses)
                 {
-                    func(this,hit.transform.gameObject);
+                    if (hit.transform.tag == tag)
+                    {
+                        func(this, hit.transform.gameObject);
+                    }
                 }
             }
         }
+    }
+    public void clickDown(CallbackContext ctx)
+    {
+        isMouseDown = true;
+        Debug.Log("DOWN");
     }
     public void clickUp(CallbackContext ctx)
     {
         foreach (var ing in selectedIngredients)
         {
-            ing.Unselect();
+            if(ing!=null)
+                ing.Unselect();
         }
+        isMouseDown = false;
     }
 
     private void selectIngredient(GameObject go)
