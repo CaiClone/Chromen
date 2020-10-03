@@ -22,12 +22,14 @@ public class TrayManager : MonoBehaviour
     {
         while (spawning)
         {
-            yield return new WaitForSeconds(t.time);
+            yield return new WaitForSeconds(t.restockTime);
             var o = t.getRandIngredient();
             if (o != null)
             {
                 GameObject nobj = Instantiate(o,t.transform);
-                nobj.GetComponent<Ingredient>().name = o.name;
+                var ing = nobj.GetComponent<Ingredient>();
+                ing.name = o.name;
+                ing.speed = t.trayspeed;
                 Destroy(nobj, 10);
             }
         }

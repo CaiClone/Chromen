@@ -4,7 +4,8 @@ public class TrayInfo : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> Ingredients;
-    public float time = 2;
+    public float restockTime = 2;
+    public float trayspeed;
     private System.Random rand;
 
     public void Start()
