@@ -12,6 +12,12 @@ public class Controlmanager : MonoBehaviour
     //because new input system is fucking bullshit
     bool isMouseDown;
     List<Ingredient> selectedIngredients = new List<Ingredient>();
+
+    LineRenderer linerenderer;
+
+
+
+
     readonly List<(string, System.Action<Controlmanager, GameObject>)> hitResponses = new List<(string, System.Action<Controlmanager,GameObject>)>()
     {
         ("Ingredient",(ins,go)=>ins.selectIngredient(go))
@@ -27,9 +33,30 @@ public class Controlmanager : MonoBehaviour
         controls.Player.Select.started += clickDown;
         controls.Player.Select.canceled += clickUp;
         mainCamera = Camera.main;
+
+        linerenderer = GetComponent<LineRenderer>();
     }
 
     public void Update()
+    {
+        checkforexpired();
+        checkInput();
+        updateLines();
+    }
+    void checkforexpired()
+    {
+        List<Ingredient> toremove = new List<Ingredient>();
+        foreach(var ing in selectedIngredients)
+        {
+            if (ing == null)
+            {
+                toremove.Add(ing);
+            }
+        }
+        foreach(var ing in toremove)
+            selectedIngredients.Remove(ing);
+    }
+    void checkInput()
     {
         if (isMouseDown)
         {
@@ -48,28 +75,45 @@ public class Controlmanager : MonoBehaviour
             }
         }
     }
+    void updateLines()
+    {
+        if (!isMouseDown || selectedIngredients.Count<=0)
+            return;
+        var lpos = selectedIngredients.Count + 1;
+        linerenderer.positionCount = lpos;
+        for(var i = 0; i < lpos-1; i++) {
+            linerenderer.SetPosition(i, selectedIngredients[i].transform.position);
+        }
+        var mpos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        linerenderer.SetPosition(lpos-1, new Vector2(mpos.x,mpos.y));
+    }
+
     public void clickDown(CallbackContext ctx)
     {
         isMouseDown = true;
-        Debug.Log("DOWN");
     }
     public void clickUp(CallbackContext ctx)
     {
-        foreach (var ing in selectedIngredients)
-        {
-            if(ing!=null)
-                ing.Unselect();
-        }
+        unselectAll();
         isMouseDown = false;
     }
 
     private void selectIngredient(GameObject go)
     {
         var ing = go.GetComponent<Ingredient>();
-        if (ing == null)
+        if (ing == null || selectedIngredients.Contains(ing))
             return;
         ing.Select();
         selectedIngredients.Add(ing);
     }
-
+    void unselectAll()
+    {
+        foreach (var ing in selectedIngredients)
+        {
+            if (ing != null)
+                ing.Unselect();
+        }
+        selectedIngredients.Clear();
+        linerenderer.positionCount = 0;
+    }
 }
