@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingredient
   - Client
+  - Segment
   layers:
   - Default
   - TransparentFX
