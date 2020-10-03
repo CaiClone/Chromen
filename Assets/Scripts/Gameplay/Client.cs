@@ -11,12 +11,12 @@ public class Client : MonoBehaviour
     //establishes positions in recipe for different number of ingredients in {numIngredient, {x,y,ScaleX,ScaleY}}
     Dictionary<int, float[]> pinfo = new Dictionary<int, float[]>()
     {
-        {2, new float[] {-0.023f,0.01f,0.38f,0.58f,0.023f,0.01f, 0.38f, 0.58f } },
+        {2, new float[] {-0.48f,0.1f,5f,5f,0.46f,0.1f, 5f, 5f } },
         {3, new float[] {1,2,3,4,1,2,3,4 } }
     };
     public void Start()
     {
-        Utils.WaitAndRun(0.1f, () => order());
+        Utils.WaitAndRun(1f, () => order());
     }
     void order()
     {
