@@ -5,4 +5,7 @@ using UnityEngine;
 public class ClientInfo : MonoBehaviour
 {
     public List<string> order;
+    public bool flipped = false;
+
+    public virtual void OnStart() { }
 }

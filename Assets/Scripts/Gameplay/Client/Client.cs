@@ -16,7 +16,13 @@ public class Client : MonoBehaviour
     };
     public void Start()
     {
+        if (info.flipped)
+        {
+            var sprite = GetComponent<SpriteRenderer>();
+            sprite.flipX = true;
+        }
         Utils.WaitAndRun(1f, () => order());
+        info.OnStart();
     }
     void order()
     {
