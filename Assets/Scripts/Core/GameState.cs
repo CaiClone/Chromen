@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameState : Singleton<GameState>
 {
     public int lvlseed = 42;
+    public string lvl = "Level1";
     void Awake()
     {
         DontDestroyOnLoad(gameObject);

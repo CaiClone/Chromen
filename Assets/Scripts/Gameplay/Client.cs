@@ -56,12 +56,3 @@ public class Client : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class ClientInfo
-{
-    public List<string> order;
-    public ClientInfo(List<string> order)
-    {
-        this.order = order;
-    }
-}

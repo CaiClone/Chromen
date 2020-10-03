@@ -21,15 +21,19 @@ public class ClientManager : MonoBehaviour
         }
         counterClients = new Client[clientPositions.Count];
 
-        //TEMP
-        var cinfo = new ClientInfo(new List<string> { "IngredientA", "IngredientB" });
-        queue.Enqueue(cinfo);
-        cinfo = new ClientInfo(new List<string> { "IngredientC", "IngredientD" });
-        queue.Enqueue(cinfo);
-        cinfo = new ClientInfo(new List<string> { "IngredientD", "IngredientB" });
-        queue.Enqueue(cinfo);
-        cinfo = new ClientInfo(new List<string> { "IngredientA", "IngredientB" });
-        queue.Enqueue(cinfo);
+        loadFromQueue();
+    }
+
+    private void loadFromQueue()
+    { 
+        foreach (GameObject go in Resources.LoadAll("Prefabs/ClientInfos/"+GameState.Instance.lvl))
+        {
+            var comp = go.GetComponent<ClientInfo>();
+            if (comp != null)
+            {
+                queue.Enqueue(comp);
+            }
+        }
     }
 
     private void Update()
