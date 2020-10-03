@@ -21,17 +21,16 @@ public class Client : MonoBehaviour
             var sprite = GetComponent<SpriteRenderer>();
             sprite.flipX = true;
         }
-        Utils.WaitAndRun(1f, () => order());
-        info.OnStart();
+        info.OnStart(this);
     }
-    void order()
+    public void Order(List<string> order)
     {
         var ordGo = transform.Find("Order");
 
-        var cinfo = pinfo[info.order.Count];
-        for (var i=0; i<info.order.Count;i++)
+        var cinfo = pinfo[order.Count];
+        for (var i=0; i<order.Count;i++)
         {
-            var sample = Resources.Load("Prefabs/IngredientThumb/" + info.order[i]);
+            var sample = Resources.Load("Prefabs/IngredientThumb/" + order[i]);
             if (sample)
             {
                 var go = (GameObject)Instantiate(sample, ordGo);

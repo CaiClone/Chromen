@@ -30,7 +30,7 @@ public class TrayManager : MonoBehaviour
                 var ing = nobj.GetComponent<Ingredient>();
                 ing.ingName = o.name;
                 ing.speed = t.trayspeed;
-                Destroy(nobj, 10);
+                Destroy(nobj, 30);
             }
         }
     }

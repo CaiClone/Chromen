@@ -41,8 +41,6 @@ public class NodeVisitedTracker : MonoBehaviour
 		// Log that the node has been run.
 
         var tags = new List<string>(dialogueRunner.GetTagsForNode(nodeName));
-        
-		Debug.Log($"Starting the execution of node {nodeName} with {tags.Count} tags.");
 	}
 
 }

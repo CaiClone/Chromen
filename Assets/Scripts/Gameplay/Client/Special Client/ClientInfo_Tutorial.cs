@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ClientInfo_Tutorial : ClientInfo
 {
-    public override void OnStart()
+    public override void OnStart(Client client)
     {
+        base.OnStart(client);
+        Debug.Log("Test");
     }
 }
