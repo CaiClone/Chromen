@@ -43,7 +43,7 @@ public class Client : MonoBehaviour
             Satisifed();
         else
             Annoyed();
-        Destroy(this.gameObject, 1.5f);
+        Destroy(gameObject, 1.5f);
     }
 
     void Satisifed()

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameState : MonoBehaviour
+public class GameState : Singleton<GameState>
 {
-    // Start is called before the first frame update
+    public int lvlseed = 42;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
