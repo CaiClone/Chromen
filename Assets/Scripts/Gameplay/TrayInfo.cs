@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class TrayInfo : MonoBehaviour
 {
     [SerializeField]
-    private List<Object> Ingredients;
+    private List<GameObject> Ingredients;
     public float time = 2;
 
-    public Object getRandIngredient()
+    public GameObject getRandIngredient()
     {
         if (Ingredients.Count == 0)
         {

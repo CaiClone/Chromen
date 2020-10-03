@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class Client : MonoBehaviour
 {
@@ -32,6 +34,25 @@ public class Client : MonoBehaviour
             }
         }
         ordGo.gameObject.SetActive(true);
+    }
+
+    public void Serve(List<Ingredient> selectedIngredients)
+    {
+        bool correct = selectedIngredients.Select((x) => x.name).OrderBy(x => x).SequenceEqual(info.order.OrderBy(x => x));
+        if (correct)
+            Satisifed();
+        else
+            Annoyed();
+        Destroy(this.gameObject, 1.5f);
+    }
+
+    void Satisifed()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(0.2f, 1, 0.2f);
+    }
+    void Annoyed()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1, 0.2f, 0.2f);
     }
 }
 

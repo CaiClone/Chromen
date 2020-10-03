@@ -20,8 +20,11 @@ public class ClientManager : MonoBehaviour
         //TEMP
         var cinfo = new ClientInfo(new List<string> { "IngredientA", "IngredientB" });
         queue.Add(cinfo);
+        cinfo = new ClientInfo(new List<string> { "IngredientC", "IngredientD" });
+        queue.Add(cinfo);
 
-        AddClient(cinfo, clientPositions[0]);
+        AddClient(queue[0], clientPositions[0]);
+        AddClient(queue[1], clientPositions[1]);
     }
 
     void AddClient(ClientInfo cinfo, Transform pos)

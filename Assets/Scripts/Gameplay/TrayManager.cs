@@ -26,7 +26,8 @@ public class TrayManager : MonoBehaviour
             var o = t.getRandIngredient();
             if (o != null)
             {
-                var nobj = Instantiate(o,t.transform);
+                GameObject nobj = Instantiate(o,t.transform);
+                nobj.GetComponent<Ingredient>().name = o.name;
                 Destroy(nobj, 10);
             }
         }

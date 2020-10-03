@@ -7,6 +7,7 @@ public class Ingredient : MonoBehaviour
 {
     float speed = 2;
     public readonly Vector3 direction = new Vector3(0, -1);
+    public string name;
     // Update is called once per frame
     void Update()
     {

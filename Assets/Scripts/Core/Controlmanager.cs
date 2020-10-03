@@ -12,15 +12,15 @@ public class Controlmanager : MonoBehaviour
     //because new input system is fucking bullshit
     bool isMouseDown;
     List<Ingredient> selectedIngredients = new List<Ingredient>();
+    GameObject potentialClient;
 
     LineRenderer linerenderer;
 
 
-
-
-    readonly List<(string, System.Action<Controlmanager, GameObject>)> hitResponses = new List<(string, System.Action<Controlmanager,GameObject>)>()
+    readonly List<(string, System.Action<Controlmanager, GameObject>)> hitResponses = new List<(string, System.Action<Controlmanager, GameObject>)>()
     {
-        ("Ingredient",(ins,go)=>ins.selectIngredient(go))
+        ("Ingredient",(ins,go)=>ins.selectIngredient(go)),
+        ("Client",(ins,go)=> ins.pointClient(go))
     };
 
     void Start()
@@ -55,6 +55,7 @@ public class Controlmanager : MonoBehaviour
         }
         foreach(var ing in toremove)
             selectedIngredients.Remove(ing);
+        potentialClient = null;
     }
     void checkInput()
     {
@@ -84,7 +85,11 @@ public class Controlmanager : MonoBehaviour
         for(var i = 0; i < lpos-1; i++) {
             linerenderer.SetPosition(i, selectedIngredients[i].transform.position);
         }
-        var mpos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 mpos;
+        if (potentialClient)
+            mpos = potentialClient.transform.position;
+        else
+            mpos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         linerenderer.SetPosition(lpos-1, new Vector2(mpos.x,mpos.y));
     }
 
@@ -94,6 +99,10 @@ public class Controlmanager : MonoBehaviour
     }
     public void clickUp(CallbackContext ctx)
     {
+        if (potentialClient)
+        {
+            serveOrder();
+        }
         unselectAll();
         isMouseDown = false;
     }
@@ -105,6 +114,17 @@ public class Controlmanager : MonoBehaviour
             return;
         ing.Select();
         selectedIngredients.Add(ing);
+    }
+    void pointClient(GameObject go)
+    {
+        potentialClient = go;
+    }
+    void serveOrder()
+    {
+        var client = potentialClient.GetComponent<Client>();
+        if (client == null)
+            return;
+        client.Serve(selectedIngredients);
     }
     void unselectAll()
     {
