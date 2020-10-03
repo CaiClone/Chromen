@@ -68,7 +68,7 @@ public class Controlmanager : MonoBehaviour
             {
                 foreach ((var tag, var func) in hitResponses)
                 {
-                    if (hit.transform.tag == tag)
+                    if (hit.transform.CompareTag(tag))
                     {
                         func(this, hit.transform.gameObject);
                     }

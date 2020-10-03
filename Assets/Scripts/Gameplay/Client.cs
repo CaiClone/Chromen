@@ -38,7 +38,7 @@ public class Client : MonoBehaviour
 
     public void Serve(List<Ingredient> selectedIngredients)
     {
-        bool correct = selectedIngredients.Select((x) => x.name).OrderBy(x => x).SequenceEqual(info.order.OrderBy(x => x));
+        bool correct = selectedIngredients.Select((x) => x.ingName).OrderBy(x => x).SequenceEqual(info.order.OrderBy(x => x));
         if (correct)
             Satisifed();
         else

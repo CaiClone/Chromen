@@ -28,7 +28,7 @@ public class TrayManager : MonoBehaviour
             {
                 GameObject nobj = Instantiate(o,t.transform);
                 var ing = nobj.GetComponent<Ingredient>();
-                ing.name = o.name;
+                ing.ingName = o.name;
                 ing.speed = t.trayspeed;
                 Destroy(nobj, 10);
             }
