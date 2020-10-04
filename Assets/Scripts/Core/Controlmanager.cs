@@ -57,7 +57,13 @@ public class Controlmanager : MonoBehaviour
         }
         foreach(var ing in toremove)
             selectedIngredients.Remove(ing);
+        if (selectedIngredients.Count == 0)
+            resetLine();
         potentialClient = null;
+    }
+    void resetLine()
+    {
+        linerenderer.positionCount = 0;
     }
     void checkInput()
     {
