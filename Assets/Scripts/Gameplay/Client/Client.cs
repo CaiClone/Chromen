@@ -25,7 +25,8 @@ public class Client : MonoBehaviour
             var sprite = GetComponent<SpriteRenderer>();
             sprite.flipX = true;
         }
-        info.OnStart(this,dialogueRunner);
+        info.AddDefaultCommands(this, dialogueRunner);
+        info.OnStart();
     }
     public void Order(List<string> order)
     {

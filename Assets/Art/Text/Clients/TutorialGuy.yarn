@@ -8,17 +8,20 @@ Anyway I see you have your ingredients around so why don't you give me a
 ===
 title: OnFail
 ---
+<<flashcolor red>>
 Nono, this isn't what I asked for at all
 Did you drop some ingredient before giving it to me?
 ===
 title: OnSuccess
 ---
+<<flashcolor green>>
 hm... it's not as good as I remember it
 <<order 2>>
 can I get something a little more complex
 ===
 title: NotYet
 ---
+<<flashcolor red>>
 Wow, relax, I didn't ask for anything yet
 [[TutorialGuy]]
 ===

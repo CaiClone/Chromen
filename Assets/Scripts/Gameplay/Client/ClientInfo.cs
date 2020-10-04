@@ -16,21 +16,28 @@ public class ClientInfo : MonoBehaviour
     protected Client client;
     protected DialogueRunner dialogueRunner;
 
-    public virtual void OnStart(Client client, DialogueRunner dialogueRunner) {
-        this.client = client;
-        this.dialogueRunner = dialogueRunner;
-
-        if (Dialogue != null)
+    public virtual void OnStart()
+    {
+        if (talkAfterOrdering)
         {
-            dialogueRunner.Add(Dialogue);
-            if (talkAfterOrdering)
-            {
-                Utils.WaitAndRun(2.5f, () => Talk());
-            }
+            Utils.WaitAndRun(2.5f, () => Talk());
         }
         Utils.WaitAndRun(timeToOrder, () => client.Order(curr_order));
     }
 
+    public void AddDefaultCommands(Client client, DialogueRunner dialogueRunner)
+    {
+        this.client = client;
+        this.dialogueRunner = dialogueRunner;
+        if (dialogueRunner != null)
+        {
+            dialogueRunner.AddCommandHandler(
+                "flashcolor",
+                flashColor
+            );
+            dialogueRunner.Add(Dialogue);
+        }
+    }
     protected void Talk()
     {
         dialogueRunner.StartDialogue(Dialogue.name);
@@ -41,6 +48,30 @@ public class ClientInfo : MonoBehaviour
         curr_order = order;
     }
     
+    private void flashColor(string[] parameters)
+    {
+        if (parameters.Length > 1)
+            flashColor(parameters[0], float.Parse(parameters[1]));
+        else
+            flashColor(parameters[0]);
+    }
+    private void flashColor(string colorName,float speed = 3f)
+    {
+        Color color;
+        switch (colorName.ToLower())
+        {
+            case "red":
+                color = new Color(1f, 0.2f, 0.2f);
+                break;
+            case "green":
+                color = new Color(0.2f, 1f, 0.2f);
+                break;
+            default:
+                color = new Color(1f, 1f, 1f);
+                break;
+        }
+        client.StartCoroutine(co_flash(color, speed));
+    }
     //Return if the order should be cancelled
     public bool Served(List<Ingredient> servedIngredients)
     {
@@ -59,12 +90,26 @@ public class ClientInfo : MonoBehaviour
 
     protected virtual void satisifed()
     {
-        GetComponent<SpriteRenderer>().color = new Color(0.2f, 1, 0.2f);
+        flashColor("Green");
         Destroy(gameObject, 1.5f);
     }
     protected virtual void annoyed()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1, 0.2f, 0.2f);
+        flashColor("Red");
         Destroy(gameObject, 1.5f);
+    }
+
+    private IEnumerator co_flash(Color color,float speed)
+    {
+        for(float i = 0; i <= 1; i += Time.deltaTime * speed)
+        {
+            client.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, color, i);
+            yield return null;
+        }
+        for (float i = 0; i <= 1; i += Time.deltaTime * speed)
+        {
+            client.GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.white, i);
+            yield return null;
+        }
     }
 }

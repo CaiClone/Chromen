@@ -13,12 +13,8 @@ public class ClientInfo_Tutorial : ClientInfo
     //0 - talking
     //1 - waiting order 1
     //2 - waiting order 2
-    public override void OnStart(Client client,DialogueRunner dialogueRunner)
+    public override void OnStart()
     {
-        this.client = client;
-        this.dialogueRunner = dialogueRunner;
-
-        dialogueRunner.Add(Dialogue);
         dialogueRunner.AddCommandHandler(
             "order",
             askOrder
