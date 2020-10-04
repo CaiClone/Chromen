@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
@@ -124,7 +125,22 @@ public class ClientInfo : MonoBehaviour
     }
     private void setcolor(string[] parameters)
     {
-
+        ///ahhhhh should reutilize the one I already had, but no time
+        Color color;
+        switch (parameters[0]) {
+            case "me":
+                color = new Color(1f, 0.84f, 0.66f);
+                Debug.Log("MY COLOR");
+                break;
+            default:
+                color = Color.white;
+                Debug.Log("THEIR COLOR");
+                break;
+        }
+        foreach(var txt in FindObjectsOfType<TextMeshProUGUI>())
+        {
+            txt.color = color;
+        }
     }
     private void setsprite(string[] parameters)
     {

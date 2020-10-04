@@ -1,11 +1,10 @@
 ﻿title: Day3_self
 ---
-<<blackscreen on>>
-<<wait 5>>
-...
-
+<<setcolor me>>
+TESTHING THIS SHIT
+<<setcolor off>>
+TESTHING THIS SHIT
 <<setsprite>>
-<<blackscreen off>>
 <<setcolor me>>
 I'm tired
 <<if $looped is 0>>
