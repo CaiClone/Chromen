@@ -9,10 +9,11 @@ how many times have I seen this day already??
 <<endif>>
 I'm starting to feel dizzy
 ...
-<<blackscreen>>
-THUNK
+<<playsound thunk>>
+<<blackscreen on>>
+<<wait 2>>
 <<setsprite>>
-<<blackscreen>>
+<<blackscreen off>>
 You don't need to brat!
 <<setcolor white>>
 So what if your father was perfect

@@ -41,6 +41,10 @@ public class ClientInfo : MonoBehaviour
             dialogueRunner.AddCommandHandler("loadstory",loadstory);
             dialogueRunner.AddCommandHandler("leave",leave);
             dialogueRunner.AddCommandHandler("startline", startline);
+            dialogueRunner.AddCommandHandler("setcolor", setcolor);
+            dialogueRunner.AddCommandHandler("setsprite", setsprite);
+            dialogueRunner.AddCommandHandler("blackscreen", blackscreen);
+            dialogueRunner.AddCommandHandler("playsound", playsound);
             if (Dialogue != null)
             {
                 dialogueRunner.Add(Dialogue);
@@ -85,6 +89,34 @@ public class ClientInfo : MonoBehaviour
         else
             leave(float.Parse(parameters[0]));
 
+    }
+    private void blackscreen(string[] parameters)
+    {
+        if (parameters[0] == "on")
+        {
+
+        }
+        else if(parameters[0]=="off")
+        {
+
+        }
+    }
+    private void setcolor(string[] parameters)
+    {
+
+    }
+    private void setsprite(string[] parameters)
+    {
+
+    }
+    private void playsound(string[] parameters)
+    {
+        switch (parameters[0])
+        {
+            case "THUNK":
+                //TODO
+                break;
+        }
     }
     private void leave(float speed = 0.5f)
     {
@@ -186,5 +218,9 @@ public class ClientInfo : MonoBehaviour
         dialogueRunner.RemoveCommandHandler("loadstory");
         dialogueRunner.RemoveCommandHandler("leave");
         dialogueRunner.RemoveCommandHandler("startline");
+        dialogueRunner.RemoveCommandHandler("setcolor");
+        dialogueRunner.RemoveCommandHandler("blackscreen");
+        dialogueRunner.RemoveCommandHandler("setsprite");
+        dialogueRunner.RemoveCommandHandler("playsound");
     }
 }

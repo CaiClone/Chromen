@@ -16340,8 +16340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlseed: 42
-  lvl: level3
-  loopcount: 0
+  lvl: debug
+  loopcount: 1
 --- !u!1001 &1787200396
 PrefabInstance:
   m_ObjectHideFlags: 0
