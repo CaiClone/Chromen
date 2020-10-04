@@ -12,9 +12,6 @@ public class ClientManager : MonoBehaviour
     Queue<ClientInfo> queue = new Queue<ClientInfo>();
     Client[] counterClients;
 
-
-    [SerializeField]
-    private float clientRespawnTime=3;
     void Start()
     {
         baseClient = Resources.Load<GameObject>("Prefabs/Client");

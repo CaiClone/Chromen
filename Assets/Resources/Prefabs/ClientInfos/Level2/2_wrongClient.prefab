@@ -19,7 +19,8 @@ MonoBehaviour:
   timeToOrder: 1
   talkAfterOrdering: 1
   sprite: {fileID: 21300000, guid: 977e408360588fa44ba27825fb2ad8ef, type: 3}
-  timeToArrive: 4
+  timeToArrive: 5
+  timeToLeave: 15
   Dialogue: {fileID: 2480198943629176163, guid: c151174476ffae046acb4070d1b2067e, type: 3}
   fakeOrder:
   - IngredientA

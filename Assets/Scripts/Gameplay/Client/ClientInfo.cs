@@ -13,6 +13,7 @@ public class ClientInfo : MonoBehaviour
     public bool talkAfterOrdering = true;
     public Sprite sprite;
     public float timeToArrive = 4f;
+    public float timeToLeave = 2f;
 
     public YarnProgram Dialogue;
 
@@ -23,8 +24,9 @@ public class ClientInfo : MonoBehaviour
     {
         if(curr_order!= null && curr_order.Count > 0)
         {
-            Utils.WaitAndRun(timeToOrder, () => client.Order(curr_order));
+            Utils.WaitAndRun(timeToArrive+timeToOrder, () => client.Order(curr_order));
         }
+        Utils.WaitAndRun(timeToArrive+ timeToOrder+timeToLeave, () => annoyed());
     }
 
     public void AddDefaultCommands(Client client, DialogueRunner dialogueRunner)
@@ -122,15 +124,15 @@ public class ClientInfo : MonoBehaviour
     protected virtual bool satisifed()
     {
         flashColor("Green");
-        client.gameObject.tag = null;
-        leave();
+        client.gameObject.tag = "Untagged";
+        Utils.WaitAndRun(2f, () => leave());
         return true;
     }
     protected virtual bool annoyed()
     {
         flashColor("Red");
-        client.gameObject.tag = null;
-        leave();
+        client.gameObject.tag = "Untagged";
+        Utils.WaitAndRun(2f, () => leave(1.5f));
         return true;
     }
 
@@ -169,7 +171,7 @@ public class ClientInfo : MonoBehaviour
             yield return null;
         }
 
-        if (talkAfterOrdering)
+        if (talkAfterOrdering && Dialogue!=null)
         {
             Utils.WaitAndRun(2.5f, () => Talk());
         }

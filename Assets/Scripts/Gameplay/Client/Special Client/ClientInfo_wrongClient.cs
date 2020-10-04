@@ -29,7 +29,6 @@ public class ClientInfo_wrongClient : ClientInfo
     protected override bool satisifed()
     {
         dialogueRunner.StartDialogue("OnSuccess");
-        client.gameObject.tag = null;
         client.gameObject.tag = "Untagged";
         return true;
     }

@@ -124,6 +124,7 @@ public class Controlmanager : MonoBehaviour
     private void loop(CallbackContext ctx)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Utils.Instance.StopAllCoroutines();
     }
     private void selectIngredient(GameObject go)
     {
