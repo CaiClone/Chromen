@@ -1,11 +1,6 @@
 ﻿title: Day3_self
 ---
 <<setcolor me>>
-TESTHING THIS SHIT
-<<setcolor off>>
-TESTHING THIS SHIT
-<<setsprite>>
-<<setcolor me>>
 I'm tired
 <<if $looped is 0>>
 today was too much
@@ -18,7 +13,7 @@ I'm starting to feel dizzy
 <<wait 5>>
 ...
 <<wait 10>>
-<<setsprite>>
+<<setsprite client1>>
 <<blackscreen off>>
 You don't need to brat!
 <<setcolor white>>

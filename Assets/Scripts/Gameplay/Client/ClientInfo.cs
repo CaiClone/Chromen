@@ -130,11 +130,9 @@ public class ClientInfo : MonoBehaviour
         switch (parameters[0]) {
             case "me":
                 color = new Color(1f, 0.84f, 0.66f);
-                Debug.Log("MY COLOR");
                 break;
             default:
                 color = Color.white;
-                Debug.Log("THEIR COLOR");
                 break;
         }
         foreach(var txt in FindObjectsOfType<TextMeshProUGUI>())
@@ -144,7 +142,10 @@ public class ClientInfo : MonoBehaviour
     }
     private void setsprite(string[] parameters)
     {
-
+        sprite = Resources.Load<Sprite>("Sprites/"+parameters[0]);
+        var sr = client.gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = sprite;
+        sr.enabled = true;
     }
     private void playsound(string[] parameters)
     {
