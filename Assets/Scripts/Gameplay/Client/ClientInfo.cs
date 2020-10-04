@@ -12,8 +12,8 @@ public class ClientInfo : MonoBehaviour
 
     public YarnProgram Dialogue;
 
-    private Client client;
-    private DialogueRunner dialogueRunner;
+    protected Client client;
+    protected DialogueRunner dialogueRunner;
 
     public virtual void OnStart(Client client, DialogueRunner dialogueRunner) {
         this.client = client;
@@ -28,7 +28,7 @@ public class ClientInfo : MonoBehaviour
             }
         }
         Utils.WaitAndRun(timeToOrder, () => client.Order(order));
-    }
+    })
 
     private void Talk()
     {
