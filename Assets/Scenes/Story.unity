@@ -898,8 +898,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438662060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6075602, y: 0.7120377, z: -21.391514}
-  m_LocalScale: {x: 178.206, y: 99.44444, z: 1}
+  m_LocalPosition: {x: -2.629, y: 0.864, z: -21.391514}
+  m_LocalScale: {x: 178.64087, y: 102.488625, z: 1}
   m_Children: []
   m_Father: {fileID: 1952832682}
   m_RootOrder: 1
@@ -986,6 +986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlseed: 42
   lvl: story1
+  loopcount: 0
 --- !u!4 &1770171625
 Transform:
   m_ObjectHideFlags: 0
