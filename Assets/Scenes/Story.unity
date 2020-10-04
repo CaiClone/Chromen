@@ -816,11 +816,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnScripts:
   - {fileID: 2480198943629176163, guid: 5f6b38d728375514ca3c06c1c6c842aa, type: 3}
+  - {fileID: 2480198943629176163, guid: 1997dca3eec8ebc41bc16b0cb38c0278, type: 3}
   textLanguage: 
   variableStorage: {fileID: 1308454904}
   dialogueUI: {fileID: 1308454905}
-  startNode: Introduction
-  startAutomatically: 1
+  startNode: 
+  startAutomatically: 0
   onNodeStart:
     m_PersistentCalls:
       m_Calls:
@@ -979,7 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlseed: 42
-  lvl: Level1
+  lvl: story1
 --- !u!4 &1770171625
 Transform:
   m_ObjectHideFlags: 0

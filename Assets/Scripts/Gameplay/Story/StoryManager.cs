@@ -16,6 +16,11 @@ public class StoryManager : MonoBehaviour
         {
             Utils.WaitAndRun(1, () => AudioController.Instance.Play("Song1", true));
         }
+        Utils.WaitAndRun(1, () => loadStory(GameState.Instance.lvl));
+    }
+    private void loadStory(string name)
+    {
+        FindObjectOfType<DialogueRunner>().StartDialogue(GameState.Instance.lvl);
     }
     public void PlayClick()
     {
