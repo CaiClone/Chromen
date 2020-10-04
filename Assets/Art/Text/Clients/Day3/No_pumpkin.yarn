@@ -7,7 +7,7 @@ I'm allergic
 title: OnFail
 ---
 I feel strange
-<<flascolor purple 5>>
+<<flashcolor purple 5>>
 <<wait 3>>
 <<leave>>
 ===
