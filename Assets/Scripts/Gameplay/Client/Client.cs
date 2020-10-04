@@ -57,6 +57,7 @@ public class Client : MonoBehaviour
             }
         }
         ordGo.gameObject.SetActive(true);
+        gameObject.tag = "Client";
     }
 
     public void Serve(List<Ingredient> selectedIngredients)
