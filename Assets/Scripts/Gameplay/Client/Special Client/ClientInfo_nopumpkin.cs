@@ -26,6 +26,7 @@ public class ClientInfo_nopumpkin: ClientInfo
 
     protected override bool satisifed()
     {
+        dialogueRunner.StartDialogue("OnSuccess");
         client.gameObject.tag = "Untagged";
         return true;
     }

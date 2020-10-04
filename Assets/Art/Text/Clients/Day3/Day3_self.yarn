@@ -1,12 +1,5 @@
 ﻿title: Day3_self
 ---
-<<blackscreen on>>
-<<playsound THUNK>>
-<<wait 5>>
-...
-<<wait 10>>
-<<setsprite client1>>
-<<setcolor me>>
 I'm tired
 <<if $looped is 0>>
 today was too much
@@ -18,13 +11,14 @@ I'm starting to feel dizzy
 <<playsound THUNK>>
 <<wait 5>>
 ...
-<<wait 10>>
+<<wait 2>>
 <<setsprite client1>>
 <<blackscreen off>>
-You don't need to brat!
 <<setcolor white>>
-So what if your father was perfect
-You don't need to be
+You don't need to try so hard brat
+So what if your father's motto was 100% accuracy
+You don't need to be the same
 You can take it easy sometimes
+You don't need to be perfect
 <<loadstory story4>>
 ===

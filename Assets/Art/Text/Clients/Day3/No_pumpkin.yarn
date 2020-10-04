@@ -7,7 +7,16 @@ I'm allergic
 title: OnFail
 ---
 I feel strange
+<<playsound wrongorder>>
 <<flashcolor purple 5>>
+<<wait 3>>
+<<leave>>
+===
+title: OnSuccess
+---
+<<playsound good>>
+<<flashcolor green>>
+Perfect!
 <<wait 3>>
 <<leave>>
 ===

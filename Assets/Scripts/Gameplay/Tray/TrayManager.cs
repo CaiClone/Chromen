@@ -90,7 +90,7 @@ public class TrayManager : MonoBehaviour
                 trays[2].AddIngredient("IngredientF");
                 trays[2].AddIngredient("IngredientE");
                 trays[2].AddIngredient("None");
-                trays[2].setParams(2.5f, 1.1f);
+                trays[2].setParams(1.5f, 1.1f);
                 trays[3].AddIngredient("IngredientD");
                 trays[3].setParams(0.5f, 2f);
                 break;

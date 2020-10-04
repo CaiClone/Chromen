@@ -51,7 +51,7 @@ your father really loved this place you know
 title: OnSuccess3
 ---
 <<flashcolor green>>
-<<playsound wrongorder>>
+<<playsound good>>
 It's getting late
 <<wait 1>>
 see ya around 

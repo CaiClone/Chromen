@@ -17,6 +17,12 @@ public class StoryControlManager : MonoBehaviour
         controls.Story.Enable();
 
         controls.Story.Next.performed += nextDialog;
+
+        var memory = FindObjectOfType<InMemoryVariableStorage>();
+        if (memory != null)
+        {
+            memory.SetValue("$looped", GameState.Instance.loopcount);
+        }
     }
     private void nextDialog(CallbackContext ctx)
     {
