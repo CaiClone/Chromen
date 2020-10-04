@@ -36,7 +36,7 @@ public class StoryManager : MonoBehaviour
     [YarnCommand("setcolorMe")]
     public void setcolorMe()
     {
-        renderText.color = new Color(212, 162, 106);
+        renderText.color = new Color(1f, 0.84f, 0.66f);
     }
 
     [YarnCommand("ShowImage")]
