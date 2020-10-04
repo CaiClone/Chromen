@@ -67,5 +67,9 @@ public class Client : MonoBehaviour
         }
         ordGo.gameObject.SetActive(false);
     }
+    void OnDestroy()
+    {
+        dialogueRunner.dialogueUI.DialogueComplete();
+    }
 }
 

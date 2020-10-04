@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 public class Controlmanager : MonoBehaviour
@@ -32,6 +33,7 @@ public class Controlmanager : MonoBehaviour
 
         controls.Player.Select.started += clickDown;
         controls.Player.Select.canceled += clickUp;
+        controls.Player.PowerReset.performed += loop;
         mainCamera = Camera.main;
 
         linerenderer = GetComponent<LineRenderer>();
@@ -93,11 +95,11 @@ public class Controlmanager : MonoBehaviour
         linerenderer.SetPosition(lpos-1, new Vector2(mpos.x,mpos.y));
     }
 
-    public void clickDown(CallbackContext ctx)
+    private void clickDown(CallbackContext ctx)
     {
         isMouseDown = true;
     }
-    public void clickUp(CallbackContext ctx)
+    private void clickUp(CallbackContext ctx)
     {
         if (potentialClient)
         {
@@ -107,6 +109,10 @@ public class Controlmanager : MonoBehaviour
         isMouseDown = false;
     }
 
+    private void loop(CallbackContext ctx)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     private void selectIngredient(GameObject go)
     {
         var ing = go.GetComponent<Ingredient>();

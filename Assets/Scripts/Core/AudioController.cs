@@ -18,8 +18,12 @@ public class AudioController : Singleton<AudioController>
     {
         if (active.Count > 1000)
         {
-            Debug.Log("Too many sounds detected");
-            return null;
+            refreshActive();
+            if (active.Count > 1000)
+            {
+                Debug.Log("Too many sounds detected");
+                return null;
+            }
         }
         AudioSource source = gameObject.AddComponent<AudioSource>();
         source.clip = clip;
@@ -46,5 +50,10 @@ public class AudioController : Singleton<AudioController>
             Debug.Log("Sound not found: " + clip);
         }
         
+    }
+
+    private void refreshActive()
+    {
+        active.RemoveAll((x) => x == null);
     }
 }

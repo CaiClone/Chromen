@@ -25,6 +25,14 @@ public class @WorldControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PowerReset"",
+                    ""type"": ""Button"",
+                    ""id"": ""d08ed6b4-6816-4776-bb75-83f28487aad7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -47,6 +55,28 @@ public class @WorldControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fccf3fc1-98c6-4925-a83f-ba29cab11954"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerReset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5eb1915e-7a35-4422-a786-e9224bed6d1d"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerReset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -625,6 +655,7 @@ public class @WorldControls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
+        m_Player_PowerReset = m_Player.FindAction("PowerReset", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -687,11 +718,13 @@ public class @WorldControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Select;
+    private readonly InputAction m_Player_PowerReset;
     public struct PlayerActions
     {
         private @WorldControls m_Wrapper;
         public PlayerActions(@WorldControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Select => m_Wrapper.m_Player_Select;
+        public InputAction @PowerReset => m_Wrapper.m_Player_PowerReset;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -704,6 +737,9 @@ public class @WorldControls : IInputActionCollection, IDisposable
                 @Select.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
                 @Select.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
                 @Select.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelect;
+                @PowerReset.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPowerReset;
+                @PowerReset.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPowerReset;
+                @PowerReset.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPowerReset;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -711,6 +747,9 @@ public class @WorldControls : IInputActionCollection, IDisposable
                 @Select.started += instance.OnSelect;
                 @Select.performed += instance.OnSelect;
                 @Select.canceled += instance.OnSelect;
+                @PowerReset.started += instance.OnPowerReset;
+                @PowerReset.performed += instance.OnPowerReset;
+                @PowerReset.canceled += instance.OnPowerReset;
             }
         }
     }
@@ -868,6 +907,7 @@ public class @WorldControls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnSelect(InputAction.CallbackContext context);
+        void OnPowerReset(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
