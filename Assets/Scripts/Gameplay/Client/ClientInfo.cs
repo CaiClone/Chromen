@@ -149,12 +149,7 @@ public class ClientInfo : MonoBehaviour
     }
     private void playsound(string[] parameters)
     {
-        switch (parameters[0])
-        {
-            case "THUNK":
-                //TODO
-                break;
-        }
+        AudioController.Instance.Play(parameters[0]);
     }
     private void leave(float speed = 0.5f)
     {
