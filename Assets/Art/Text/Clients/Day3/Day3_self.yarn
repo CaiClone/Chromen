@@ -1,0 +1,22 @@
+﻿title: Day3_self
+---
+<<setcolor me>>
+I'm tired
+<<if $looped is 0>>
+today was too much
+<<else>>
+how many times have I seen this day already??
+<<endif>>
+I'm starting to feel dizzy
+...
+<<blackscreen>>
+THUNK
+<<setsprite>>
+<<blackscreen>>
+You don't need to brat!
+<<setcolor white>>
+So what if your father was perfect
+You don't need to be
+You can take it easy sometimes
+<<loadstory story4>>
+===

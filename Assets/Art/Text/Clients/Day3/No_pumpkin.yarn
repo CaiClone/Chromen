@@ -1,0 +1,13 @@
+﻿title: No_pumpkin
+---
+Please do not put pumpkin on mine!
+<<order>>
+I'm allergic
+===
+title: OnFail
+---
+I feel strange
+<<flascolor purple 5>>
+<<wait 3>>
+<<leave>>
+===

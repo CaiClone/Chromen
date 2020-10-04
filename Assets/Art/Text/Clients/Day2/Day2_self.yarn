@@ -1,7 +1,8 @@
 ﻿title: Day2_self
 tags:
 ---
-Wew, what a busy day {$looped}
+<<setcolor me>>
+Wew, what a busy day
 <<if $looped is 0>>
 I didn't need to loop even once though
 Hope I still managed to satsify all customers regardless

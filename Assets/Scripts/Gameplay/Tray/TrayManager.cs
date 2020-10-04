@@ -81,6 +81,19 @@ public class TrayManager : MonoBehaviour
                 trays[3].AddIngredient("None");
                 trays[3].setParams(1.3f, 3f);
                 break;
+            case "level3":
+                trays[0].AddIngredient("IngredientA");
+                trays[0].AddIngredient("IngredientB");
+                trays[0].setParams(1.3f, 1f);
+                trays[1].AddIngredient("IngredientC");
+                trays[1].setParams(3f, 0.7f);
+                trays[2].AddIngredient("IngredientF");
+                trays[2].AddIngredient("IngredientE");
+                trays[2].AddIngredient("None");
+                trays[2].setParams(2.5f, 1.1f);
+                trays[3].AddIngredient("IngredientD");
+                trays[3].setParams(0.5f, 2f);
+                break;
         }
     }
 }

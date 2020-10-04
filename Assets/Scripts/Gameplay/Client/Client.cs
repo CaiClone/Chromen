@@ -14,8 +14,10 @@ public class Client : MonoBehaviour
     Dictionary<int, float[]> pinfo = new Dictionary<int, float[]>()
     {
         {1, new float[] {0f,0.1f,6f,6f} },
-        {2, new float[] {-0.48f,0.1f,5f,5f,0.46f,0.1f, 5f, 5f } },
-        {3, new float[] {1,2,3,4,1,2,3,4 } }
+        {2, new float[] {-0.48f,0.1f,5f,5f,0.46f,0.1f, 5f, 5f} },
+        {3, new float[] {-0.70f,0.1f,5f,5f,
+                         -0.03f,0.1f,5f,5f,
+                          0.64f,0.1f,5f,5f} }
     };
 
     public void Start()

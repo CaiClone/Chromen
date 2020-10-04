@@ -101,6 +101,9 @@ public class ClientInfo : MonoBehaviour
             case "green":
                 color = new Color(0.2f, 1f, 0.2f);
                 break;
+            case "purple":
+                color = new Color(0.8f,0.2f, 0.8f);
+                break;
             default:
                 color = new Color(1f, 1f, 1f);
                 break;
@@ -167,7 +170,7 @@ public class ClientInfo : MonoBehaviour
         sr.enabled = true;
         for (float i = 0; i < 1; i += Time.deltaTime * speed)
         {
-            sr.color = new Color(1, 1, 1, i);
+            sr.color = new Color(i, i, i, i);
             yield return null;
         }
 
