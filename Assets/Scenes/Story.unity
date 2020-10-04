@@ -699,6 +699,9 @@ MonoBehaviour:
   - name: restaurantName
     value: RESTAURANTNAME
     type: 1
+  - name: loops
+    value: -1
+    type: 0
   debugTextView: {fileID: 0}
 --- !u!114 &1308454905
 MonoBehaviour:
@@ -817,6 +820,8 @@ MonoBehaviour:
   yarnScripts:
   - {fileID: 2480198943629176163, guid: 5f6b38d728375514ca3c06c1c6c842aa, type: 3}
   - {fileID: 2480198943629176163, guid: 1997dca3eec8ebc41bc16b0cb38c0278, type: 3}
+  - {fileID: 2480198943629176163, guid: 25a22625efdc18a4e8d2fa2ce17be5bc, type: 3}
+  - {fileID: 2480198943629176163, guid: 20021fa6d19ef1942a8ba94aa68eef3e, type: 3}
   textLanguage: 
   variableStorage: {fileID: 1308454904}
   dialogueUI: {fileID: 1308454905}

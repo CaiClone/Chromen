@@ -59,7 +59,7 @@ public class TrayManager : MonoBehaviour
                 trays[0].AddIngredient("IngredientA");
                 trays[0].AddIngredient("IngredientB");
                 trays[0].setParams(1.3f, 1.2f);
-                trays[1].AddIngredient("Ingredientc");
+                trays[1].AddIngredient("IngredientC");
                 trays[1].setParams(2f, 1f);
                 trays[2].AddIngredient("IngredientD");
                 trays[2].AddIngredient("None");
@@ -67,6 +67,19 @@ public class TrayManager : MonoBehaviour
                 trays[3].setParams(1.3f, 0f);
                 break;
             case "level2":
+                trays[0].AddIngredient("IngredientA");
+                trays[0].AddIngredient("IngredientB");
+                trays[0].setParams(1.3f, 1.2f);
+                trays[1].AddIngredient("IngredientE");
+                trays[1].AddIngredient("IngredientB");
+                trays[2].AddIngredient("IngredientA");
+                trays[1].setParams(2f, 1f);
+                trays[2].AddIngredient("IngredientF");
+                trays[2].AddIngredient("IngredientC");
+                trays[2].setParams(1f, 1f);
+                trays[3].AddIngredient("IngredientD");
+                trays[3].AddIngredient("None");
+                trays[3].setParams(1.3f, 3f);
                 break;
         }
     }

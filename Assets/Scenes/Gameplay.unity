@@ -4867,8 +4867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ae2a7c6bb22f41b5655f9eb8c987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restockTime: 1.5
-  trayspeed: 1.1
+  restockTime: 0
+  trayspeed: 0
 --- !u!1001 &1314679358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5118,8 +5118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ae2a7c6bb22f41b5655f9eb8c987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restockTime: 0.7
-  trayspeed: 2
+  restockTime: 0
+  trayspeed: 0
 --- !u!1001 &1369807619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5336,7 +5336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trays:
-  - {fileID: 0}
+  - {fileID: 1956112617}
+  - {fileID: 1264577449}
+  - {fileID: 1758452176}
+  - {fileID: 1331234558}
   spawning: 1
 --- !u!4 &1466536390
 Transform:
@@ -6587,8 +6590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ae2a7c6bb22f41b5655f9eb8c987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restockTime: 2
-  trayspeed: 1
+  restockTime: 0
+  trayspeed: 0
 --- !u!1 &1762149303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,7 +6636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlseed: 42
-  lvl: level1
+  lvl: level2
 --- !u!1001 &1787200396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7151,8 +7154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ae2a7c6bb22f41b5655f9eb8c987a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restockTime: 1.3
-  trayspeed: 1.2
+  restockTime: 0
+  trayspeed: 0
 --- !u!1001 &1973707487
 PrefabInstance:
   m_ObjectHideFlags: 0

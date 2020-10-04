@@ -38,6 +38,10 @@ public class Controlmanager : MonoBehaviour
         mainCamera = Camera.main;
 
         linerenderer = GetComponent<LineRenderer>();
+        if (GameState.Instance.lvl != "level1")
+        {
+            FindObjectOfType<TrayManager>().enabled = true;
+        }
     }
 
     public void Update()

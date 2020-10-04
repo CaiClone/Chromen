@@ -1,0 +1,32 @@
+﻿title: 2_wrongClient
+tags:
+---
+Yeah, like I've been telling you
+<<order>>
+have you head about the blockchain ...
+it is ... future ... secure decentralized
+... I've got a friend ... state of the art
+...
+...
+--Uninteligible--
+... store cooking recipes
+===
+title: OnFail
+---
+<<flashcolor red>>
+What is this? it's not what I asked for
+I didn't want this last ingredient
+I wanted the one on the last line
+<<flashcolor red 3>>
+What do you mean this is what I asked for
+That's a lie
+<<leave>>
+===
+title: OnSuccess
+---
+Oh, that's not exactly what I asked for
+<<flashcolor green>>
+Well I don't dislike it
+So I don't mind eating it
+<<leave>>
+===

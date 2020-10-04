@@ -41,7 +41,7 @@ public class ClientInfo_Tutorial : ClientInfo
                 break;
         }
     }
-    protected override void satisifed()
+    protected override bool satisifed()
     {
         switch (state)
         {
@@ -61,8 +61,9 @@ public class ClientInfo_Tutorial : ClientInfo
                 dialogueRunner.StartDialogue("OnSuccess3");
                 break;
         }
+        return true;
     }
-    protected override void annoyed()
+    protected override bool annoyed()
     {
         switch (state)
         {
@@ -73,6 +74,7 @@ public class ClientInfo_Tutorial : ClientInfo
                 dialogueRunner.StartDialogue("OnFail");
                 break;
         }
+        return false;
     }
     public override void RemoveCommands()
     {

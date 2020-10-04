@@ -1,5 +1,15 @@
 ﻿title: story2
 tags:
 ---
-testtooo
+<<ShowImage StoryManager>>
+<<wait 1>>
+{$restaurantName} is famous for it's accuracy
+After all we haven't given a wrong service ever
+Obviously no human would be able to accomplish that
+But we are not human
+Being part youkai allows us to bend time and loop the current day
+...
+I would have prefered to be a tanooki
+--- From now on press C or R to activate your power and correct client orders! ---
+<<LevelLoad StoryManager level2>>
 ===

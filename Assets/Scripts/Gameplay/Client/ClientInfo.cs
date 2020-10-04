@@ -111,25 +111,27 @@ public class ClientInfo : MonoBehaviour
         bool correct = servedIngredients.Select((x) => x.ingName).OrderBy(x => x).SequenceEqual(curr_order.OrderBy(x => x));
         if (correct)
         {
-            satisifed();
-            return true;
+            return satisifed();
         }
         else
         {
-            annoyed();
-            return false;
+            return annoyed();
         }
     }
 
-    protected virtual void satisifed()
+    protected virtual bool satisifed()
     {
         flashColor("Green");
-        Destroy(gameObject, 1.5f);
+        client.gameObject.tag = null;
+        leave();
+        return true;
     }
-    protected virtual void annoyed()
+    protected virtual bool annoyed()
     {
         flashColor("Red");
-        Destroy(gameObject, 1.5f);
+        client.gameObject.tag = null;
+        leave();
+        return true;
     }
 
     private IEnumerator co_flash(Color color,float speed)
