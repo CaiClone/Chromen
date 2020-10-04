@@ -31,7 +31,7 @@ public class AudioController : Singleton<AudioController>
         if (loop)
         {
             source.loop = true;
-            source.volume = 0.15f;
+            source.volume = 0.2f;
             foreach(var a in active)
             {
                 Destroy(a);

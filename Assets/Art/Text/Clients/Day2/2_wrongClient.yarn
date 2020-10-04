@@ -17,12 +17,10 @@ title: OnFail
 <<playsound wrongorder>>
 
 What is this? it's not what I asked for
-I didn't want this last ingredient
-I wanted the one on the right most conveyor
 <<flashcolor red 3>>
 <<playsound wrongorder>>
-What do you mean this is what I asked for
-That's a lie
+What do you mean I asked for blue red
+I obviously asked for blue purple!
 <<leave>>
 ===
 title: OnSuccess

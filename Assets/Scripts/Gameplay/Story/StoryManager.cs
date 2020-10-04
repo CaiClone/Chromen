@@ -50,7 +50,7 @@ public class StoryManager : MonoBehaviour
     public void LevelLoad(string[] parameters)
     {
         StartCoroutine(fadeOutImage(0.3f));
-        if (parameters[0] == "Menu")
+        if (parameters[0] == "menu")
         {
             GameState.Instance.lvl = "story1";
             Utils.Instance._WaitAndRun(1f, () => SceneManager.LoadScene("Menu"));

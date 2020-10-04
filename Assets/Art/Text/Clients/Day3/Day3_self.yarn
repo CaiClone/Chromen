@@ -1,10 +1,11 @@
 ﻿title: Day3_self
 ---
+<<loadstory story4>>
 I'm tired
 <<if $looped is 0>>
-today was too much
+Today was too much
 <<else>>
-how many times have I seen this day already??
+How many times have I seen this day already??
 <<endif>>
 I'm starting to feel dizzy
 <<blackscreen on>>

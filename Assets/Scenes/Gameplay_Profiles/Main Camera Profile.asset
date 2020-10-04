@@ -192,10 +192,10 @@ MonoBehaviour:
     value: 27.4
   tint:
     overrideState: 0
-    value: 2.4
+    value: 39.9
   colorFilter:
     overrideState: 0
-    value: {r: 0.9339623, g: 0.8414472, b: 0.8414472, a: 1}
+    value: {r: 0.9056604, g: 0.46564615, b: 0.46564615, a: 1}
   hueShift:
     overrideState: 0
     value: 33

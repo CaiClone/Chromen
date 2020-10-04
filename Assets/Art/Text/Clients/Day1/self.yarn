@@ -2,9 +2,8 @@
 tags:
 ---
 <<setcolor me>>
-...
 Seems like there is not a lot of clients today
-<<wait 4>>
+<<wait 3>>
 Today truly was a worthless day
 <<loadstory story2>>
 ===

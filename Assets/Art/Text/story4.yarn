@@ -1,14 +1,15 @@
 ﻿title: story4
 tags:
 ---
-I still haven't fully accepted what they told me
+<<ShowImage StoryManager>>
+I still haven't fully accepted what my clients tell me
 Won't not striving for perfection mean I get even worse?
 <<wait 3>>
 I'm guessing not understanding it is just another imperfection
 and I can allow it
 <<wait 3>>
 -- Thanks for playing until the end! Hope you enjoyed Chromen! --
--- You looped through: {$loops} days --
+-- You looped through: {$looped} days --
 <<wait 5>>
-<<LevelLoad StoryManager level3>>
+<<LevelLoad StoryManager menu>>
 ===

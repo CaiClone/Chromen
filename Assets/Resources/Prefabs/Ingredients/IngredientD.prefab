@@ -53,19 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 349395506681364987, guid: f5b663199dfc1704aa46b99422475dc2, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.48235297
       objectReference: {fileID: 0}
     - target: {fileID: 349395506681364987, guid: f5b663199dfc1704aa46b99422475dc2, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.09019608
       objectReference: {fileID: 0}
     - target: {fileID: 349395506681364987, guid: f5b663199dfc1704aa46b99422475dc2, type: 3}
       propertyPath: m_Color.b
-      value: 0.97662306
+      value: 0.44705886
       objectReference: {fileID: 0}
     - target: {fileID: 349395506681364989, guid: f5b663199dfc1704aa46b99422475dc2, type: 3}
       propertyPath: m_Name
-      value: IngredienD
+      value: IngredientD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5b663199dfc1704aa46b99422475dc2, type: 3}

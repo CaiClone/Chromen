@@ -28,7 +28,7 @@ public class ClientInfo : MonoBehaviour
         {
             Utils.WaitAndRun(timeToArrive+timeToOrder, () => client.Order(curr_order));
         }
-        Utils.WaitAndRun(timeToArrive+ timeToOrder+timeToLeave, () => annoyed());
+        //Utils.WaitAndRun(timeToArrive+ timeToOrder+timeToLeave, () => annoyed());
     }
 
     public void AddDefaultCommands(Client client, DialogueRunner dialogueRunner)
@@ -197,9 +197,21 @@ public class ClientInfo : MonoBehaviour
         Utils.WaitAndRun(2f, () => leave());
         return true;
     }
+    protected void setRedScreen()
+    {
+
+        if (GameState.Instance.lvl != "level1")
+        {
+            var ppvolume = FindObjectOfType<PostProcessVolume>();
+            ColorGrading cg;
+            ppvolume.profile.TryGetSettings(out cg);
+            cg.colorFilter.overrideState = true;
+        }
+    }
     protected virtual bool annoyed()
     {
         flashColor("Red");
+        setRedScreen();
         AudioController.Instance.Play("wrongorder");
         client.gameObject.tag = "Untagged";
         Utils.WaitAndRun(2f, () => leave(1.5f));

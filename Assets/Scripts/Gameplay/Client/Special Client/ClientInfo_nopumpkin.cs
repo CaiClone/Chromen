@@ -19,6 +19,7 @@ public class ClientInfo_nopumpkin: ClientInfo
     }
     protected override bool annoyed()
     {
+        setRedScreen();
         dialogueRunner.StartDialogue("OnFail");
         client.gameObject.tag = "Untagged";
         return true;
