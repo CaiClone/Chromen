@@ -22,6 +22,7 @@ public class ClientInfo_wrongClient : ClientInfo
     protected override bool annoyed()
     {
         dialogueRunner.StartDialogue("OnFail");
+        AudioController.Instance.Play("wrongorder");
         client.gameObject.tag = "Untagged";
         return true;
     }

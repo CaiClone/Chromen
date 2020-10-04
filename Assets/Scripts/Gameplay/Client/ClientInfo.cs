@@ -192,6 +192,7 @@ public class ClientInfo : MonoBehaviour
     protected virtual bool satisifed()
     {
         flashColor("Green");
+        AudioController.Instance.Play("good");
         client.gameObject.tag = "Untagged";
         Utils.WaitAndRun(2f, () => leave());
         return true;
@@ -199,6 +200,7 @@ public class ClientInfo : MonoBehaviour
     protected virtual bool annoyed()
     {
         flashColor("Red");
+        AudioController.Instance.Play("wrongorder");
         client.gameObject.tag = "Untagged";
         Utils.WaitAndRun(2f, () => leave(1.5f));
         return true;

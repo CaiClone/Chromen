@@ -29,6 +29,7 @@ title: OnSuccess
 ---
 Oh, that's not exactly what I asked for
 <<flashcolor green>>
+<<playsound wrongorder>>
 Well I don't dislike it
 So I don't mind eating it
 <<leave>>

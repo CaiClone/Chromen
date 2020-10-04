@@ -11,12 +11,14 @@ I can teach you the ropes if you want, After all I'm a veteran here
 title: OnFail
 ---
 <<flashcolor red>>
+<<playsound wrongorder>>
 Nono, this isn't what I asked for at all
 Did you drop some ingredient before giving it to me?
 ===
 title: OnSuccess
 ---
 <<flashcolor green>>
+<<playsound good>>
 hm... it's not as good as I remember it
 <<order 2>>
 can I get something a little more filling
@@ -24,6 +26,7 @@ can I get something a little more filling
 title: NotYet
 ---
 <<flashcolor red>>
+<<playsound wrongorder>>
 Wow, relax, I didn't ask for anything yet
 [[TutorialGuy]]
 ===
@@ -40,6 +43,7 @@ right here
 title: OnSuccess2
 ---
 <<flashcolor green>>
+<<playsound wrongorder>>
 Ahhh, that hits the spot
 your father really loved this place you know
 <<order 3>>
@@ -47,6 +51,7 @@ your father really loved this place you know
 title: OnSuccess3
 ---
 <<flashcolor green>>
+<<playsound wrongorder>>
 It's getting late
 <<wait 1>>
 see ya around 

@@ -32,6 +32,11 @@ public class AudioController : Singleton<AudioController>
         {
             source.loop = true;
             source.volume = 0.15f;
+            foreach(var a in active)
+            {
+                Destroy(a);
+            }
+            active.Clear();
         }
         else
         {

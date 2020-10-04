@@ -62,23 +62,25 @@ public class StoryManager : MonoBehaviour
         }
     }
 
+    //they are reversed because reasons
     IEnumerator fadeInImage(float speed = 0.3f)
-    {
-        var img = image.GetComponent<SpriteRenderer>();
-        for (float i = 0; i <= 1; i += Time.deltaTime * speed)
-        {
-            // set color with i as alpha
-            img.color = new Color(1, 1, 1, i);
-            yield return null;
-        }
-    }
-    IEnumerator fadeOutImage(float speed = 0.3f)
     {
         var img = image.GetComponent<SpriteRenderer>();
         for (float i = 1; i > 0; i -= Time.deltaTime * speed)
         {
             // set color with i as alpha
-            img.color = new Color(1, 1, 1, i);
+            img.color = new Color(0, 0, 0, i);
+            yield return null;
+        }
+    }
+    //they are reversed because reasons
+    IEnumerator fadeOutImage(float speed = 0.3f)
+    {
+        var img = image.GetComponent<SpriteRenderer>();
+        for (float i = 0; i <= 1; i += Time.deltaTime * speed)
+        {
+            // set color with i as alpha
+            img.color = new Color(0,0, 0, i);
             yield return null;
         }
     }
