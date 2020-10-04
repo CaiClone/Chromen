@@ -20,10 +20,14 @@ public class Client : MonoBehaviour
 
     public void Start()
     {
-        if (info.flipped)
+        var spriteRend = GetComponent<SpriteRenderer>();
+        if (spriteRend != null)
         {
-            var sprite = GetComponent<SpriteRenderer>();
-            sprite.flipX = true;
+            if (info.flipped)
+            {
+                spriteRend.flipX = true;
+            }
+            spriteRend.sprite = info.sprite;
         }
         info.AddDefaultCommands(this, dialogueRunner);
         info.OnStart();

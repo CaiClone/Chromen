@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class ClientInfo : MonoBehaviour
@@ -10,6 +11,7 @@ public class ClientInfo : MonoBehaviour
     public bool flipped = false;
     public float timeToOrder = 1f;
     public bool talkAfterOrdering = true;
+    public Sprite sprite;
 
     public YarnProgram Dialogue;
 
@@ -22,7 +24,10 @@ public class ClientInfo : MonoBehaviour
         {
             Utils.WaitAndRun(2.5f, () => Talk());
         }
-        Utils.WaitAndRun(timeToOrder, () => client.Order(curr_order));
+        if(curr_order!= null && curr_order.Count > 0)
+        {
+            Utils.WaitAndRun(timeToOrder, () => client.Order(curr_order));
+        }
     }
 
     public void AddDefaultCommands(Client client, DialogueRunner dialogueRunner)
@@ -35,7 +40,14 @@ public class ClientInfo : MonoBehaviour
                 "flashcolor",
                 flashColor
             );
-            dialogueRunner.Add(Dialogue);
+            dialogueRunner.AddCommandHandler(
+                "loadstory",
+                loadstory
+            );
+            if (Dialogue != null)
+            {
+                dialogueRunner.Add(Dialogue);
+            }
         }
     }
     protected void Talk()
@@ -55,7 +67,12 @@ public class ClientInfo : MonoBehaviour
         else
             flashColor(parameters[0]);
     }
-    private void flashColor(string colorName,float speed = 3f)
+    private void loadstory(string[] parameters)
+    {
+        GameState.Instance.lvl = parameters[0];
+        SceneManager.LoadScene("Story");
+    }
+    private void flashColor(string colorName,float speed = 4f)
     {
         Color color;
         switch (colorName.ToLower())
