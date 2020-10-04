@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
@@ -92,13 +93,33 @@ public class ClientInfo : MonoBehaviour
     }
     private void blackscreen(string[] parameters)
     {
+        var ppvolume = FindObjectOfType<PostProcessVolume>();
+        Vignette vig;
+        ppvolume.profile.TryGetSettings(out vig);
         if (parameters[0] == "on")
         {
-
+            client.StartCoroutine(fadeInScreen(vig,1f));
         }
         else if(parameters[0]=="off")
         {
+            client.StartCoroutine(fadeOutScreen(vig));
+        }
+    }
 
+    private IEnumerator fadeInScreen(Vignette vig, float speed = 0.5f)
+    {
+        for (float i = vig.intensity.value; i <= 1f; i += Time.deltaTime * speed)
+        {
+            vig.intensity.value = i;
+            yield return null;
+        }
+    }
+    private IEnumerator fadeOutScreen(Vignette vig, float speed = 0.5f)
+    {
+        for (float i = 1; i > 0.127; i -= Time.deltaTime * speed)
+        {
+            vig.intensity.value = i;
+            yield return null;
         }
     }
     private void setcolor(string[] parameters)

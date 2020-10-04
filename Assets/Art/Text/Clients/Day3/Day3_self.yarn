@@ -1,5 +1,11 @@
 ﻿title: Day3_self
 ---
+<<blackscreen on>>
+<<wait 5>>
+...
+
+<<setsprite>>
+<<blackscreen off>>
 <<setcolor me>>
 I'm tired
 <<if $looped is 0>>
@@ -8,10 +14,11 @@ today was too much
 how many times have I seen this day already??
 <<endif>>
 I'm starting to feel dizzy
-...
 <<playsound thunk>>
 <<blackscreen on>>
-<<wait 2>>
+<<wait 5>>
+...
+<<wait 10>>
 <<setsprite>>
 <<blackscreen off>>
 You don't need to brat!
