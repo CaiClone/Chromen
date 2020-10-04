@@ -3,15 +3,17 @@ title: Introduction
 <<wait 1>>
 <<setcolorDad StoryManager>>
 Hey {$playername}! 
-come here for a second, there is something I want to tell you
+Come here for a second, there is something I want to tell you
 It may already be obvious
 but if something were to happen to me...
 I would like you to inherit {$restaurantName}
 <<setcolorMe StoryManager>>
 My father told me these words recently
 I did not expect them to become relevant so soon
-<<wait 3>>
 <<ShowImage StoryManager>>
 ...
-
+<<wait 3>>
+Anyway, I'm already late to work today
+I must hurry
+<<LevelLoad StoryManager level1>>
 ===

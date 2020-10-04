@@ -587,6 +587,66 @@ public class @WorldControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Story"",
+            ""id"": ""bfdce470-71da-4340-b4cc-aaa33c023eba"",
+            ""actions"": [
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""63ede21f-6d1e-47b1-a0f9-c33ed2e98860"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""84aa33aa-8e2a-4337-abce-7bc8c4f7749f"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4cce5c9-5d08-4d83-be07-21dfd0ca171a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb630f53-7b3d-46d3-98ea-ee410a234d8f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06b20709-b074-4b5a-b62d-38fb1abe7ffe"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -668,6 +728,9 @@ public class @WorldControls : IInputActionCollection, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Story
+        m_Story = asset.FindActionMap("Story", throwIfNotFound: true);
+        m_Story_Next = m_Story.FindAction("Next", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -859,6 +922,39 @@ public class @WorldControls : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Story
+    private readonly InputActionMap m_Story;
+    private IStoryActions m_StoryActionsCallbackInterface;
+    private readonly InputAction m_Story_Next;
+    public struct StoryActions
+    {
+        private @WorldControls m_Wrapper;
+        public StoryActions(@WorldControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Next => m_Wrapper.m_Story_Next;
+        public InputActionMap Get() { return m_Wrapper.m_Story; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StoryActions set) { return set.Get(); }
+        public void SetCallbacks(IStoryActions instance)
+        {
+            if (m_Wrapper.m_StoryActionsCallbackInterface != null)
+            {
+                @Next.started -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+                @Next.performed -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+                @Next.canceled -= m_Wrapper.m_StoryActionsCallbackInterface.OnNext;
+            }
+            m_Wrapper.m_StoryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Next.started += instance.OnNext;
+                @Next.performed += instance.OnNext;
+                @Next.canceled += instance.OnNext;
+            }
+        }
+    }
+    public StoryActions @Story => new StoryActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -921,5 +1017,9 @@ public class @WorldControls : IInputActionCollection, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IStoryActions
+    {
+        void OnNext(InputAction.CallbackContext context);
     }
 }
