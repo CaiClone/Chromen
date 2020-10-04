@@ -9,6 +9,7 @@ public class Controlmanager : MonoBehaviour
 {
     WorldControls controls;
     Camera mainCamera;
+    public bool MusicOn = true;
 
     //because new input system is fucking bullshit
     bool isMouseDown;
@@ -41,6 +42,10 @@ public class Controlmanager : MonoBehaviour
         if (GameState.Instance.lvl != "level1")
         {
             FindObjectOfType<TrayManager>().enabled = true;
+        }
+        if (MusicOn)
+        {
+            Utils.WaitAndRun(1, () => AudioController.Instance.Play("SongGameplay", true));
         }
     }
 

@@ -30,7 +30,7 @@ public class StoryManager : MonoBehaviour
     [YarnCommand("setcolorDad")]
     public void setcolorDad()
     {
-        renderText.color = Color.red;
+        renderText.color = Color.white;
     }
 
     [YarnCommand("setcolorMe")]
@@ -49,9 +49,17 @@ public class StoryManager : MonoBehaviour
     [YarnCommand("LevelLoad")]
     public void LevelLoad(string[] parameters)
     {
-        GameState.Instance.lvl = parameters[0];
-        StartCoroutine(fadeOutImage(0.6f));
-        Utils.Instance._WaitAndRun(3f,()=>SceneManager.LoadScene("Gameplay"));
+        StartCoroutine(fadeOutImage(0.3f));
+        if (parameters[0] == "Menu")
+        {
+            GameState.Instance.lvl = "story1";
+            Utils.Instance._WaitAndRun(1f, () => SceneManager.LoadScene("Menu"));
+        }
+        else
+        {
+            GameState.Instance.lvl = parameters[0];
+            Utils.Instance._WaitAndRun(3f, () => SceneManager.LoadScene("Gameplay"));
+        }
     }
 
     IEnumerator fadeInImage(float speed = 0.3f)

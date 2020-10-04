@@ -31,6 +31,7 @@ public class AudioController : Singleton<AudioController>
         if (loop)
         {
             source.loop = true;
+            source.volume = 0.15f;
         }
         else
         {

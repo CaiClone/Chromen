@@ -9,4 +9,6 @@ and I can allow it
 <<wait 3>>
 -- Thanks for playing until the end! Hope you enjoyed Chromen! --
 -- You looped through: {$loops} days --
+<<wait 5>>
+<<LevelLoad StoryManager level3>>
 ===

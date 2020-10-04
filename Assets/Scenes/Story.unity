@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b1b4043ced4f6468915d6b03d577f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicOn: 0
+  MusicOn: 1
   renderText: {fileID: 22197193}
   image: {fileID: 746626835}
 --- !u!4 &447217419
@@ -694,14 +694,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultVariables:
   - name: playername
-    value: TODEFINE
+    value: son
     type: 1
   - name: restaurantName
-    value: RESTAURANTNAME
+    value: Chromen
     type: 1
-  - name: loops
-    value: -1
-    type: 0
   debugTextView: {fileID: 0}
 --- !u!114 &1308454905
 MonoBehaviour:

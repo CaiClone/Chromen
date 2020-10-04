@@ -819,8 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec15cf7141b817e4e9627fe28f4bac68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logo: {fileID: 0}
-  newlogo: {fileID: 0}
+  logo: {fileID: 762231150}
+  newlogo: {fileID: 21300000, guid: 0b9699f615a4f6442b548f94153513de, type: 3}
 --- !u!4 &1799338568
 Transform:
   m_ObjectHideFlags: 0
