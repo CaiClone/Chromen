@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8208e7d9f0a9c40a29a0d3b950e856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info:
-    order: []
+  info: {fileID: 0}
+  dialogueRunner: {fileID: 0}
 --- !u!61 &4083905031977339261
 BoxCollider2D:
   m_ObjectHideFlags: 0

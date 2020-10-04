@@ -1,0 +1,33 @@
+﻿title: TutorialGuy
+---
+Hello, is your father not here today?
+I see
+<<order 1>>
+Anyway I see you have your ingredients around so why don't you give me a
+[[Tutorial]]
+===
+title: OnFail
+---
+Nono, this isn't what I asked for at all
+Did you drop some ingredient before giving it to me?
+===
+title: OnSuccess
+---
+hm... it's not as good as I remember it
+<<order 2>>
+can I get something a little more complex
+===
+title: NotYet
+---
+Wow, relax, I didn't ask for anything yet
+[[TutorialGuy]]
+===
+title: Tutorial
+---
+You can start by clicking the first ingredient you see
+<<wait 2>>
+then drag a line through any other ingredient
+<<wait 2>>
+and point it to your faithful client
+[[Tutorial]]
+===

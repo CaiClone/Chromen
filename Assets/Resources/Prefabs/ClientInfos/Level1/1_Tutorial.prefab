@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e2ce5a41556de4ebe7c71ce2527ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order:
-  - IngredientD
+  curr_order:
   - IngredientD
   flipped: 0
+  timeToOrder: 1
+  talkAfterOrdering: 1
+  Dialogue: {fileID: 2480198943629176163, guid: 2cf96d85f2513f74fa3f04dc6f8aff73, type: 3}
+  order1:
+  - IngredientB
+  order2:
+  - IngredientA
+  - IngredientC
 --- !u!1001 &311917899151115636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329740284805666399, guid: 1857ce095fafbfd43b1bcc3f4f0b0ab0, type: 3}
       propertyPath: m_Name
-      value: 3
+      value: 1_Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5329740284805666396, guid: 1857ce095fafbfd43b1bcc3f4f0b0ab0, type: 3}

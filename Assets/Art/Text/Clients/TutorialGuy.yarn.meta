@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1141e083b37690c42985665920634bf7
+guid: 2cf96d85f2513f74fa3f04dc6f8aff73
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -9,12 +9,9 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
   baseLanguageID: en-IE
-  stringIDs:
-  - Rand2-Rand2-0
-  - Rand2-Rand2-1
-  - Rand2-Rand2-2
-  compilationStatus: 1
+  stringIDs: []
+  compilationStatus: 0
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 
-  baseLanguage: {fileID: 7128917941130120860, guid: 1141e083b37690c42985665920634bf7, type: 3}
+  baseLanguage: {instanceID: 0}
   localizations: []
