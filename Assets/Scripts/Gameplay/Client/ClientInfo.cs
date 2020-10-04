@@ -12,6 +12,7 @@ public class ClientInfo : MonoBehaviour
     public float timeToOrder = 1f;
     public bool talkAfterOrdering = true;
     public Sprite sprite;
+    public float timeToArrive = 4f;
 
     public YarnProgram Dialogue;
 
@@ -20,10 +21,6 @@ public class ClientInfo : MonoBehaviour
 
     public virtual void OnStart()
     {
-        if (talkAfterOrdering)
-        {
-            Utils.WaitAndRun(2.5f, () => Talk());
-        }
         if(curr_order!= null && curr_order.Count > 0)
         {
             Utils.WaitAndRun(timeToOrder, () => client.Order(curr_order));
@@ -41,11 +38,13 @@ public class ClientInfo : MonoBehaviour
             dialogueRunner.AddCommandHandler("flashcolor",flashColor);
             dialogueRunner.AddCommandHandler("loadstory",loadstory);
             dialogueRunner.AddCommandHandler("leave",leave);
+            dialogueRunner.AddCommandHandler("startline", startline);
             if (Dialogue != null)
             {
                 dialogueRunner.Add(Dialogue);
             }
         }
+        client.StartCoroutine(co_fadeIn(2f));
     }
     protected void Talk()
     {
@@ -60,7 +59,11 @@ public class ClientInfo : MonoBehaviour
     {
         curr_order = order;
     }
-    
+
+    private void startline(string[] parameters)
+    {
+        FindObjectOfType<TrayManager>().enabled = true;
+    }
     private void flashColor(string[] parameters)
     {
         if (parameters.Length > 1)
@@ -153,11 +156,28 @@ public class ClientInfo : MonoBehaviour
         }
         Destroy(client.gameObject);
     }
+    private IEnumerator co_fadeIn(float speed)
+    {
+        yield return new WaitForSeconds(timeToArrive);
+        var sr = client.GetComponent<SpriteRenderer>();
+        sr.enabled = true;
+        for (float i = 0; i < 1; i += Time.deltaTime * speed)
+        {
+            sr.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+
+        if (talkAfterOrdering)
+        {
+            Utils.WaitAndRun(2.5f, () => Talk());
+        }
+    }
     ///Should automatize this
     public virtual void RemoveCommands()
     {
         dialogueRunner.RemoveCommandHandler("flashcolor");
         dialogueRunner.RemoveCommandHandler("loadstory");
         dialogueRunner.RemoveCommandHandler("leave");
+        dialogueRunner.RemoveCommandHandler("startline");
     }
 }

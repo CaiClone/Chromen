@@ -18,7 +18,6 @@ public class ClientInfo_Tutorial : ClientInfo
     public override void OnStart()
     {
         dialogueRunner.AddCommandHandler("order",askOrder);
-        Utils.WaitAndRun(2.5f, () => Talk());
         state = 0;
     }
 

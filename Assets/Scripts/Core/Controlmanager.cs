@@ -21,7 +21,8 @@ public class Controlmanager : MonoBehaviour
     readonly List<(string, System.Action<Controlmanager, GameObject>)> hitResponses = new List<(string, System.Action<Controlmanager, GameObject>)>()
     {
         ("Ingredient",(ins,go)=>ins.selectIngredient(go)),
-        ("Client",(ins,go)=> ins.pointClient(go))
+        ("Client",(ins,go)=> ins.pointClient(go)),
+        ("Trayend",(ins,go)=> ins.resetLine())
     };
 
     void Start()
@@ -64,6 +65,7 @@ public class Controlmanager : MonoBehaviour
     void resetLine()
     {
         linerenderer.positionCount = 0;
+        unselectAll();  
     }
     void checkInput()
     {

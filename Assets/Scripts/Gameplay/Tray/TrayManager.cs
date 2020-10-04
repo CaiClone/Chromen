@@ -14,6 +14,7 @@ public class TrayManager : MonoBehaviour
     private void OnEnable()
     {
         traySegment = Resources.Load<GameObject>("Prefabs/TraySegment");
+        loadIngredients();
 
         foreach (var t in GetComponentsInChildren<TrayInfo>())
         {
@@ -24,7 +25,6 @@ public class TrayManager : MonoBehaviour
             StartCoroutine(SpawnSegment(t));
         }
     }
-
     IEnumerator sendIngredient(TrayInfo t)
     {
         while (spawning)
@@ -48,6 +48,26 @@ public class TrayManager : MonoBehaviour
             yield return new WaitForSeconds(0.6f/t.trayspeed);
             GameObject nobj = Instantiate(traySegment, t.transform);
             Destroy(nobj, 30);
+        }
+    }
+    private void loadIngredients()
+    {
+        //I'm sorry, I'm truly sorry
+        switch (GameState.Instance.lvl)
+        {
+            case "level1":
+                trays[0].AddIngredient("IngredientA");
+                trays[0].AddIngredient("IngredientB");
+                trays[0].setParams(1.3f, 1.2f);
+                trays[1].AddIngredient("Ingredientc");
+                trays[1].setParams(2f, 1f);
+                trays[2].AddIngredient("IngredientD");
+                trays[2].AddIngredient("None");
+                trays[2].setParams(1f, 1f);
+                trays[3].setParams(1.3f, 0f);
+                break;
+            case "level2":
+                break;
         }
     }
 }
