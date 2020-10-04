@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Yarn.Unity;
+using System.Linq;
 
 public class ClientManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class ClientManager : MonoBehaviour
         }
         counterClients = new Client[clientPositions.Count];
 
-        foreach (var dr in FindObjectsOfType<DialogueRunner>())
+        foreach (var dr in FindObjectsOfType<DialogueRunner>().OrderBy(x => x.gameObject.name))
         {
             dialogueRunners.Add(dr);
         }
