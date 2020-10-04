@@ -1,9 +1,11 @@
 ﻿title: TutorialGuy
 ---
+<<leave>>
 Hello, is your father not here today?
 I see
 <<order 1>>
-Anyway I see you have your ingredients around so why don't you give me a
+Anyway I see you have your ingredients around so why don't you serve me something
+I can teach you the ropes if you want, After all I'm a veteran here
 [[Tutorial]]
 ===
 title: OnFail
@@ -17,7 +19,7 @@ title: OnSuccess
 <<flashcolor green>>
 hm... it's not as good as I remember it
 <<order 2>>
-can I get something a little more complex
+can I get something a little more filling
 ===
 title: NotYet
 ---
@@ -31,6 +33,22 @@ You can start by clicking the first ingredient you see
 <<wait 2>>
 then drag a line through any other ingredient
 <<wait 2>>
-and point it to your faithful client
+and point it towards your best client
+right here
 [[Tutorial]]
+===
+title: OnSuccess2
+---
+<<flashcolor green>>
+Ahhh, that hits the spot
+your father really loved this place you know
+<<order 3>>
+===
+title: OnSuccess3
+---
+<<flashcolor green>>
+It's getting late
+<<wait 1>>
+see ya around 
+<<leave>>
 ===

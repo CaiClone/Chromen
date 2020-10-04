@@ -18,12 +18,15 @@ MonoBehaviour:
   timeToOrder: 1
   talkAfterOrdering: 1
   sprite: {fileID: 21300000, guid: 977e408360588fa44ba27825fb2ad8ef, type: 3}
-  Dialogue: {fileID: 2480198943629176163, guid: 2cf96d85f2513f74fa3f04dc6f8aff73, type: 3}
+  Dialogue: {fileID: 2480198943629176163, guid: 72095ae0d28b033459b1f6a8056538bd, type: 3}
   order1:
   - IngredientB
   order2:
   - IngredientA
   - IngredientC
+  order3:
+  - IngredientA
+  - IngredientB
 --- !u!1001 &311917899151115636
 PrefabInstance:
   m_ObjectHideFlags: 0

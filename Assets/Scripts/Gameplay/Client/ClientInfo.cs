@@ -36,14 +36,11 @@ public class ClientInfo : MonoBehaviour
         this.dialogueRunner = dialogueRunner;
         if (dialogueRunner != null)
         {
-            dialogueRunner.AddCommandHandler(
-                "flashcolor",
-                flashColor
-            );
-            dialogueRunner.AddCommandHandler(
-                "loadstory",
-                loadstory
-            );
+            dialogueRunner.Stop();
+            dialogueRunner.Clear();
+            dialogueRunner.AddCommandHandler("flashcolor",flashColor);
+            dialogueRunner.AddCommandHandler("loadstory",loadstory);
+            dialogueRunner.AddCommandHandler("leave",leave);
             if (Dialogue != null)
             {
                 dialogueRunner.Add(Dialogue);
@@ -52,6 +49,10 @@ public class ClientInfo : MonoBehaviour
     }
     protected void Talk()
     {
+        if (client.gameObject == null)
+        {
+            return;
+        }
         dialogueRunner.StartDialogue(Dialogue.name);
     }
 
@@ -71,6 +72,18 @@ public class ClientInfo : MonoBehaviour
     {
         GameState.Instance.lvl = parameters[0];
         SceneManager.LoadScene("Story");
+    }
+    private void leave(string[] parameters)
+    {
+        if (parameters==null || parameters.Length == 0)
+            leave();
+        else
+            leave(float.Parse(parameters[0]));
+
+    }
+    private void leave(float speed = 0.5f)
+    {
+        client.StartCoroutine(co_fadeOut(speed));
     }
     private void flashColor(string colorName,float speed = 4f)
     {
@@ -118,15 +131,33 @@ public class ClientInfo : MonoBehaviour
 
     private IEnumerator co_flash(Color color,float speed)
     {
-        for(float i = 0; i <= 1; i += Time.deltaTime * speed)
+        var sr = client.GetComponent<SpriteRenderer>();
+        for (float i = 0; i <= 1; i += Time.deltaTime * speed)
         {
-            client.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, color, i);
+            sr.color = Color.Lerp(Color.white, color, i);
             yield return null;
         }
         for (float i = 0; i <= 1; i += Time.deltaTime * speed)
         {
-            client.GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.white, i);
+            sr.color = Color.Lerp(color, Color.white, i);
             yield return null;
         }
+    }
+    private IEnumerator co_fadeOut(float speed)
+    {
+        var sr = client.GetComponent<SpriteRenderer>();
+        for (float i = 1; i >= 0; i -= Time.deltaTime * speed)
+        {
+            sr.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+        Destroy(client.gameObject);
+    }
+    ///Should automatize this
+    public virtual void RemoveCommands()
+    {
+        dialogueRunner.RemoveCommandHandler("flashcolor");
+        dialogueRunner.RemoveCommandHandler("loadstory");
+        dialogueRunner.RemoveCommandHandler("leave");
     }
 }

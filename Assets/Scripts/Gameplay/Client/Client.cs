@@ -34,6 +34,10 @@ public class Client : MonoBehaviour
     }
     public void Order(List<string> order)
     {
+        if (gameObject == null)
+        {
+            return;
+        }
         var ordGo = transform.Find("Order");
 
         if (!pinfo.ContainsKey(order.Count))
@@ -74,6 +78,8 @@ public class Client : MonoBehaviour
     }
     void OnDestroy()
     {
+        StopAllCoroutines();
+        info.RemoveCommands();
         dialogueRunner.dialogueUI.DialogueComplete();
     }
 }

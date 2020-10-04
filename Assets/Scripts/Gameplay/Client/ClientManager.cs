@@ -75,7 +75,9 @@ public class ClientManager : MonoBehaviour
     {
         if (queue.Count > 0)
         {
-            AddClient(queue.Dequeue(), seat);
-        }
+            //only add the last client if all other seats empty
+            if (queue.Count > 1 || counterClients.All((x) => x == null))
+                AddClient(queue.Dequeue(), seat);
+        }   
     }
 }

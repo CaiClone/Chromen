@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cf96d85f2513f74fa3f04dc6f8aff73
+guid: 72095ae0d28b033459b1f6a8056538bd
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -9,9 +9,25 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
   baseLanguageID: en-IE
-  stringIDs: []
-  compilationStatus: 0
+  stringIDs:
+  - TutorialGuy-TutorialGuy-0
+  - TutorialGuy-TutorialGuy-1
+  - TutorialGuy-TutorialGuy-2
+  - TutorialGuy-OnFail-3
+  - TutorialGuy-OnFail-4
+  - TutorialGuy-OnSuccess-5
+  - TutorialGuy-OnSuccess-6
+  - TutorialGuy-NotYet-7
+  - TutorialGuy-Tutorial-8
+  - TutorialGuy-Tutorial-9
+  - TutorialGuy-Tutorial-10
+  - TutorialGuy-Tutorial-11
+  - TutorialGuy-OnSuccess2-12
+  - TutorialGuy-OnSuccess2-13
+  - TutorialGuy-OnSuccess3-14
+  - TutorialGuy-OnSuccess3-15
+  compilationStatus: 1
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 
-  baseLanguage: {instanceID: 0}
+  baseLanguage: {fileID: 7128917941130120860, guid: 72095ae0d28b033459b1f6a8056538bd, type: 3}
   localizations: []

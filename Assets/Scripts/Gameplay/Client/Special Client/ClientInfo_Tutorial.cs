@@ -8,17 +8,16 @@ public class ClientInfo_Tutorial : ClientInfo
     //at least not directly
     public List<string> order1;
     public List<string> order2;
+    public List<string> order3;
 
     private int state;
     //0 - talking
     //1 - waiting order 1
     //2 - waiting order 2
+    //...
     public override void OnStart()
     {
-        dialogueRunner.AddCommandHandler(
-            "order",
-            askOrder
-        );
+        dialogueRunner.AddCommandHandler("order",askOrder);
         Utils.WaitAndRun(2.5f, () => Talk());
         state = 0;
     }
@@ -36,6 +35,11 @@ public class ClientInfo_Tutorial : ClientInfo
                 client.Order(curr_order);
                 state++;
                 break;
+            case "3":
+                SetOrder(order3);
+                client.Order(curr_order);
+                state++;
+                break;
         }
     }
     protected override void satisifed()
@@ -48,7 +52,15 @@ public class ClientInfo_Tutorial : ClientInfo
             case 1:
                 dialogueRunner.StartDialogue("OnSuccess");
                 break;
-
+            case 2:
+                dialogueRunner.StartDialogue("OnSuccess2");
+                break;
+            case 3:
+                dialogueRunner.StartDialogue("OnSuccess3");
+                break;
+            default:
+                dialogueRunner.StartDialogue("OnSuccess3");
+                break;
         }
     }
     protected override void annoyed()
@@ -58,9 +70,14 @@ public class ClientInfo_Tutorial : ClientInfo
             case 0:
                 dialogueRunner.StartDialogue("NotYet");
                 break;
-            case 1:
+            default:
                 dialogueRunner.StartDialogue("OnFail");
                 break;
         }
+    }
+    public override void RemoveCommands()
+    {
+        base.RemoveCommands();
+        dialogueRunner.RemoveCommandHandler("order");
     }
 }
