@@ -1,11 +1,12 @@
-﻿title: me
+﻿title: Day2_self
 tags:
 ---
-Wew what a busy day
+Wew, what a busy day {$looped}
 <<if $looped is 0>>
 I didn't need to loop even once though
 Hope I still managed to satsify all customers regardless
 <<else>>
 Looping does make one's sense of time feel unclear
 <<endif>>
+<<loadstory story3>>
 ===

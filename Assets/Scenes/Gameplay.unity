@@ -382,7 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610c541718d694070a21327d1ae62e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultVariables: []
+  defaultVariables:
+  - name: looped
+    value: 0
+    type: 0
   debugTextView: {fileID: 0}
 --- !u!1001 &24934128
 PrefabInstance:
@@ -3116,7 +3119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1cf0863eff462489341acf4d856f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientRespawnTime: 3
 --- !u!1001 &717259168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6636,7 +6638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlseed: 42
-  lvl: level2
+  lvl: level3
+  loopcount: 0
 --- !u!1001 &1787200396
 PrefabInstance:
   m_ObjectHideFlags: 0

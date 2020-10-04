@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329740284805666396, guid: 1857ce095fafbfd43b1bcc3f4f0b0ab0, type: 3}
       propertyPath: talkAfterOrdering
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5329740284805666397, guid: 1857ce095fafbfd43b1bcc3f4f0b0ab0, type: 3}
       propertyPath: m_LocalPosition.x
